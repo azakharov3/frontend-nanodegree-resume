@@ -133,12 +133,22 @@ work.displayWork();
 
 
 var education = {
-    "name": "Chelyabinsk State Medical Academy",
-    "major": "Healthcare Administration",
-    "dates": "2000 - 2006",
-    "degree": "BD",
-    "city": "Chelyabinsk, Russia"
+    schools: [
+        {
+            "name": "Chelyabinsk State Medical Academy",
+            "major": "Healthcare Administration",
+            "dates": "2000 - 2006",
+            "degree": "BD",
+            "city": "Chelyabinsk, Russia"
+        }
+    ],
+    display: function () {
+        for (var i = 0; i < this.schools.length; i++) {
+            $("#education").append(HTMLschoolStart);
+        }
+    }
 };
+education.display();
 
 function inName(nameToConvert)
 {
@@ -150,7 +160,3 @@ function inName(nameToConvert)
     return firstName + " " + lastName;
 }
 
-$("#main").append(internationalizeButton);
-
-
-;
