@@ -136,27 +136,24 @@ var education = {
     schools: [
         {
             "name": "Chelyabinsk State Medical Academy",
+            "url": "http://www.chelsma.ru/eng/",
             "major": "Healthcare Administration",
-            "dates": "2000 - 2006",
-            "degree": "BD",
+            "dates": "Graduated in 2006",
+            "degree": "B.S.",
             "city": "Chelyabinsk, Russia"
         }
     ],
     display: function () {
         for (var i = 0; i < this.schools.length; i++) {
             $("#education").append(HTMLschoolStart);
+            var formattedSchoolName = HTMLschoolName.replace("%data%", this.schools[i].name);
+            $(".education-entry:last").append(formattedSchoolName);
+            $(".education-entry:last a").attr("href", "http://www.chelsma.ru/eng/");
+            var formattedDegree = HTMLschoolDegree.replace("%data%", this.schools[i].degree);
+            $(".education-entry:last").append(formattedDegree);
+            var formattedDates = HTMLschoolDates.replace("%data%", this.schools[i].dates);
+            $(".education-entry:last").append(formattedDates);
         }
     }
 };
 education.display();
-
-function inName(nameToConvert)
-{
-    var name = nameToConvert.trim().split(" ")
-    var firstName = name[0];
-    var lastName = name[1];
-    firstName = firstName[0].toUpperCase() + firstName.slice(1).toLowerCase();
-    lastName = lastName.toUpperCase();
-    return firstName + " " + lastName;
-}
-
